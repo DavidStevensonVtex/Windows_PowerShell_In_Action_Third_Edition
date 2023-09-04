@@ -261,3 +261,41 @@ powershell { Get-Process *ss } | Format-Table name, handles
 
 This is useful if you want isolation so that the child process can't impact the parent process environment.
 
+#### 1.3.4 Aliases and elastic syntax
+
+The _dir_ command is an alias for _Get-ChildItem_.
+
+```Get-Command dir```
+<pre>CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Alias           dir -> Get-ChildItem                                                </pre>
+
+```Get-Command Get-ChildItem```
+<pre>CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Cmdlet          Get-ChildItem                                      7.0.0.0    Microsoft.PowerShell.Management</pre>
+
+To see all the information, pipe the output of Get-Command into fl.
+
+```Get-Command fl```
+<pre>CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Alias           fl -> Format-List                                       </pre>
+
+```Get-Command gcm,gci,ii```
+<pre>CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Alias           gcm -> Get-Command
+Alias           gci -> Get-ChildItem
+Alias           ii -> Invoke-Item</pre>
+
+Aliases in PowerShell are limited to aliasing the command name only. Unlike in other ystems such as Ksh, Bash and Zsh,
+PowerShell aliases can't include parameters.
+
+There is a second type of alias used in PowerShell. _parameter_. Unlike command aliases, which can be created by end users,
+parameter aliases are created by the author of a cmdlet, script, or function.
+
+A parameter alias is a shorter name for a parameter.
+
+
+

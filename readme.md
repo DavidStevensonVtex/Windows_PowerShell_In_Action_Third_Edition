@@ -244,3 +244,20 @@ Switch parameters are parameters that don't require a value. A good example is t
 for the Get-ChildItem command
 
 ```Get-ChildItem -Recurse -Filter c*d.exec C:\Windows```
+
+
+#### 1.3.3 Command categories
+
+* Cmdlets (names of the form Verb-Noun)
+* Functions (named piece of PowerShell script)
+* Scripts (lives in a text file with .ps1 file extension)
+* Native applications
+    * The PowerShell interpreter, PowerShell.exe, is a native command.
+* Desired State Configuration
+
+Run a child PowerShell process example:
+
+powershell { Get-Process *ss } | Format-Table name, handles
+
+This is useful if you want isolation so that the child process can't impact the parent process environment.
+

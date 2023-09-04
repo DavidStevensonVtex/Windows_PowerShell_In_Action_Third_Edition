@@ -181,3 +181,29 @@ The range operator generates a sequence of numbers.
 7 is odd
 9 is odd
 </pre>
+
+#### 1.2.5 Scripts and functions
+
+```
+param($name = 'bub')
+"Hello $name, how are you?"
+```
+
+```.\hello```
+<pre>Hello bub, how are you?</pre>
+
+```.\hello Dave```
+<pre>Hello Dave, how are you?</pre>
+
+```
+function hello { 
+    param($name = "bub")
+    "Hello $name, how are you"
+}
+
+hello
+hello Dave
+```
+
+<pre>Hello bub, how are you
+Hello Dave, how are you</pre>

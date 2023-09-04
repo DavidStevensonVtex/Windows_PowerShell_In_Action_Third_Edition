@@ -154,3 +154,30 @@ Mode                 LastWriteTime         Length Name
       0     2.76     420.94       0.00    3300   0 Memory Compression       
      67   300.09     383.40     258.34   35580   2 chrome
 </pre>
+
+#### 1.2.4 Flow-Control statements
+
+```
+$i = 0
+while ( $i++ -lt 10) { if ($i % 2) { "$i is odd" } }
+```
+
+<pre>
+1 is odd
+3 is odd
+5 is odd
+7 is odd
+9 is odd
+</pre>
+
+The range operator generates a sequence of numbers.
+
+```1..10 | foreach { if ($_ % 2) { "$_ is odd" }}```
+
+<pre>
+1 is odd
+3 is odd
+5 is odd
+7 is odd
+9 is odd
+</pre>

@@ -223,3 +223,24 @@ Enter-PSSession -ComputerName _remote-computer-name_
 Based on the Korn shell. PowerShell syntax is aligned with C#.  
 PowerShell code can be migrated to C# when necessary for performance improvements.
 
+#### 1.3.1 Command concepts and terminology
+
+#### 1.3.2 Commands and cmdlets
+
+Commands are the fundamental part of any shell language.
+
+```command -parameter -parameter2 argument1 argument2```
+
+PowerShell parameters correspond to the keywords, and arguments correspond to the values.
+
+A parameter starts with a dash followed b the name of the parameter. An argument is the value
+that will be associated with the parameter.
+
+Positional parameters 
+
+Quotes keep a value from being treated as a parameter.
+
+Switch parameters are parameters that don't require a value. A good example is the _-Recurse_ parameter
+for the Get-ChildItem command
+
+```Get-ChildItem -Recurse -Filter c*d.exec C:\Windows```

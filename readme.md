@@ -297,5 +297,30 @@ parameter aliases are created by the author of a cmdlet, script, or function.
 
 A parameter alias is a shorter name for a parameter.
 
+### 1.4 Parsing the PowerShell language
 
+#### 1.4.1 How PowerShell parses
 
+#### 1.4.2 Quoting
+
+Putting single quotes around an entire sequence of characters causes them to be treated like a single string. 
+This is how you deal with file paths that have spaces in them, for example.
+
+```Set-Location 'C:\Program Files' ```
+
+Quoting a single character can be done with the backquote / backtick character
+<pre>Set-Location C:\Program` Files</pre>
+
+__What is the difference between single and double quotes?
+
+In double quotes, varaibles are expanded. If the double-quoted string contains 
+a variable reference starting with a $, it will be replaced by a string representation
+of the value stored in the value.
+
+```
+$files = "files"
+Set-Location "C:\Program $files"
+Write-Output "`$files is `n'$files'"
+```
+abc
+[About Escape Characters](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_special_characters?view=powershell-7.3)

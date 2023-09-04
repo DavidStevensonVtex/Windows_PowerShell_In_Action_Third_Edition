@@ -34,3 +34,20 @@ Mode                 LastWriteTime         Length Name
 ```Get-Help dir```
 
 ```Get-Help Get-ChildItem -Online```
+
+#### 1.2.2 Basic expressions and variables
+
+```
+(2+2)*3/7 > .\foo.txt
+Get-Content .\foo.txt
+```
+
+Result: 1.71428571428571
+
+```
+$n = (2+2) * 3
+$n
+```
+
+Result: 12
+

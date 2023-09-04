@@ -218,5 +218,8 @@ When you want to connect to a machine to interact with it on a one-to-one basis,
 
 Enter-PSSession -ComputerName _remote-computer-name_
 
+### 1.3 Core Concepts
 
+Based on the Korn shell. PowerShell syntax is aligned with C#.  
+PowerShell code can be migrated to C# when necessary for performance improvements.
 

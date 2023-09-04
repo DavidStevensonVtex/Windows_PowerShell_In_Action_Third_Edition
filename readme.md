@@ -207,3 +207,16 @@ hello Dave
 
 <pre>Hello bub, how are you
 Hello Dave, how are you</pre>
+
+#### 1.2.6 Remote administration
+
+The core of PowerShell remoting is Invoke-Command (aliased to _icm_). This command allows you to invoke a block of PowerShell script on the current computer. on a remote computer, or on a thousand remote computers.
+
+Invoke-Command -ScriptBlock { _powershell commands_ } -ComputerName _remote-computer-name_
+
+When you want to connect to a machine to interact with it on a one-to-one basis, you use the __Enter-PSSession__ command.
+
+Enter-PSSession -ComputerName _remote-computer-name_
+
+
+

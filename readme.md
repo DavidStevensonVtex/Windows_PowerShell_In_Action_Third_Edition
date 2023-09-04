@@ -29,3 +29,8 @@ Mode                 LastWriteTime         Length Name
 -a---            9/4/2023 11:46 AM             44 somefile.txt
 </pre>
 
+#### 1.2.1 Navigation and basic operations
+
+```Get-Help dir```
+
+```Get-Help Get-ChildItem -Online```

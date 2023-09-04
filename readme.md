@@ -18,3 +18,14 @@ C:\WINDOWS\iis_gather.log        354
 Select-String: The file C:\WINDOWS\iis.log cannot be read: Access to the path 'C:\WINDOWS\iis.log' is denied.
 C:\WINDOWS\setupact.log            9
 </pre>
+
+### 1.2 PowerShell Example code
+
+```Get-ChildItem -Path .\somefile.txt```
+
+<pre>
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a---            9/4/2023 11:46 AM             44 somefile.txt
+</pre>
+

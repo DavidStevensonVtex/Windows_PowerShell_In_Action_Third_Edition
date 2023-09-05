@@ -450,3 +450,70 @@ System.Net.NetworkInformation.dll
 System.Runtime.InteropServices.RuntimeInformation.dll
 System.Runtime.Serialization.Formatters.dll
 </pre>
+
+#### 1.6.1 Formatting cmdlets
+
+```Get-Command Format-* | Format-Table name```
+
+<pre>
+Name
+----
+Format-Volume
+Format-Custom
+Format-Hex
+Format-List
+Format-SecureBootUEFI
+Format-Table
+Format-Wide
+</pre>
+
+```Get-Item c:\ | Format-Table```
+<pre>
+    Directory: 
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d--hs            9/5/2023  3:27 PM
+</pre>
+
+You can achieve a better display with the -AutoSize parameter for Format-Table, but
+this prevents streaming, as PowerShell has to process all rows before displaying any.
+
+Typically, the default layout is good, and you don't need -Autosize.
+
+```Get-ChildItem c:\ | Format-Table -AutoSize```
+
+The Format-List command displays the elements of the objects as a list, one after the other.
+If there's more than one object to display, they'll appear as a series of lists.
+
+```Get-Item c:\ | Format-List```
+
+<pre>
+    Directory:
+
+Name           : C:\
+CreationTime   : 7/16/2016 2:04:24 AM
+LastWriteTime  : 9/5/2023 3:27:56 PM
+LastAccessTime : 9/5/2023 4:23:24 PM
+Mode           : d--hs
+LinkType       : 
+Target         : 
+</pre>
+
+The Format-Wide cmdlet is used when you want to display a single object property in a concise way.
+
+```Get-Process -Name s* | Format-Wide -Column 8 id```
+
+The final formatter is Format-Custom, which displays objects while preserving the basic structure of the object.
+
+```Get-Item c:\ | Format-Custom -Depth 1```
+<pre>
+class DirectoryInfo
+{
+  PSPath = Microsoft.PowerShell.Core\FileSystem::C:\
+  PSParentPath =
+  PSChildName = C:\
+  PSDrive =
+    class PSDriveInfo
+    {
+</pre>

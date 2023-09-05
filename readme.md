@@ -387,3 +387,18 @@ This is a comment
 Each command in the pipeline receives an object from the previous command,
 performs some operation on it, and then passes it along to the next command
 in the pipeline.
+
+#### 1.5.1 Pipelines and streaming behavior
+
+In stream processing, objects are output from the pipeline as soon as they become available.
+
+In a pipelined shell, the first result is returned as soon as it's available and subsequent
+results return as they become available.
+
+```
+Get-Process | Where { $_.handles -gt 500 } | Sort handles | Format-Table
+```
+
+In owerShell, streaming is accomplished by splitting cmdlets into three clauses:
+BeginProcessing, ProcessRecord, and EndProcessing.
+

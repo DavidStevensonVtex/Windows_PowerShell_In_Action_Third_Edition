@@ -434,3 +434,19 @@ DEBUG: 2023-09-05 16:09:16.0402 ParameterBinding Information: 0 : CALLING Proces
 DEBUG: 2023-09-05 16:09:16.0405 ParameterBinding Information: 0 : CALLING EndProcessing
 <span style='color: lightgreen; font-weight: bold;'>123</span>
  </pre>
+
+### 1.6 Formatting and output
+
+Use Format-Table and Format-List to give general guidance on the shape of the display, but no specific details.
+
+```Get-ChildItem $PSHOME/*format* | Format-Table name```
+
+<pre style='color: lightgreen ; font-weight: bold ;'>
+Name
+----
+System.Formats.Asn1.dll
+System.Formats.Tar.dll
+System.Net.NetworkInformation.dll
+System.Runtime.InteropServices.RuntimeInformation.dll
+System.Runtime.Serialization.Formatters.dll
+</pre>

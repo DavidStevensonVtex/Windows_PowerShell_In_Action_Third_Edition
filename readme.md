@@ -324,3 +324,13 @@ Write-Output "`$files is `n'$files'"
 ```
 abc
 [About Escape Characters](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_special_characters?view=powershell-7.3)
+
+#### 1.4.3 Expression-mode and command-mode parsing
+
+```
+Write-Output -this -is -a parameter
+-this
+-is      
+-a       
+parameter
+```

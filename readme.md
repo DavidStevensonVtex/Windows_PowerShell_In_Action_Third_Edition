@@ -334,3 +334,22 @@ Write-Output -this -is -a parameter
 -a       
 parameter
 ```
+
+#### 1.4.4 Statement termination
+In PowerShell, there are two statement terminator characters: the semicolon (;) and (sometimes) the newline.
+
+The rule is that if the previous text is a syntactically complete statement a newline is considered to be a
+statement termination. If it isn't complete, the newline is treated like any other whitespace.
+
+A line can be extended with the backtick character.
+
+```
+Write-Output "Hello
+>> there
+>> how are
+>> you?"
+Hello
+there
+how are
+you?
+```

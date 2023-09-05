@@ -353,3 +353,31 @@ there
 how are
 you?
 ```
+
+#### 1.4.5 Comment syntax in PowerShell
+
+PowerShell comments begin with a number sign (#) and continue to the end of the line.
+The # character must be at the beginning of a token for it to start a comment.
+
+```
+echo hi#there
+>>
+hi#there
+```
+
+```
+echo hi #there
+hi
+```
+
+__Multiline Comments__
+
+A multiline comment begins with <# and ends with #>.
+
+```
+<#
+This is a comment
+   that spans 
+   multiple lines
+#>
+```

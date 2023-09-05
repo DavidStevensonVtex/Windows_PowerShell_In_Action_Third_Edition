@@ -517,3 +517,60 @@ class DirectoryInfo
     class PSDriveInfo
     {
 </pre>
+
+
+#### 1.6.2 Outputter cmdlets
+
+Output is automatically sent to Out-Default cmdlet.
+
+The following 3 lines do exactly the same thing.
+
+```
+dir | Out-Default
+dir | Format-Table
+dir | Format-Table | Out-Default
+```
+
+__Out-Null__ is used to discard output.
+
+Piping to Out-Null is the equivalent of redirecting to $null, 
+but invokes the pipeline and can be up to 40 times slower than
+redirecting to $null.
+
+__Out-File__
+
+This command sends output to a file rather than the screen.
+Flags allow files to be appended instead of overwritten,
+forcing writing to read-only files, and choosing output
+[encodings](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/out-file?view=powershell-7.3).
+
+* ascii
+* bigendianunicode: Encodes in UTF-16 format using the big-endian byte order.
+* bigendianutf32: Encodes in UTF-32 format using the big-endian byte order.
+* oem: Uses the default encoding for MS-DOS and console programs.
+* unicode: Encodes in UTF-16 format using the little-endian byte order.
+* utf7: Encodes in UTF-7 format.
+* utf8: Encodes in UTF-8 format.
+* utf8BOM: Encodes in UTF-8 format with Byte Order Mark (BOM)
+* utf8NoBOM: Encodes in UTF-8 format without Byte Order Mark (BOM)
+* utf32: Encodes in UTF-32 format.
+
+Note: Tab completion can be used to cycle through the valid encodings.
+
+__Out-Printer cmdlet__
+
+__Out-Host cmdlet__
+
+This cmdlet sends the output back to the host.
+Hosts include the console and the Integrated Scripting Environment (ISE).
+
+__Out-String cmdlet__
+
+This cmdlet formats its input and sends it as a string to the next cmdlet in the pipeline.
+String, not strings.
+
+If you do want the output as a series of strings, use the -Stream switch parameter.
+
+__Out-GridView cmdlet__
+
+```Get-Process *ss | Out-Gridview```

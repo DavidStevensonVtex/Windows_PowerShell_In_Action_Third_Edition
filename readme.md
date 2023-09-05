@@ -381,3 +381,9 @@ This is a comment
    multiple lines
 #>
 ```
+
+### 1.5 How the pipeline works
+
+Each command in the pipeline receives an object from the previous command,
+performs some operation on it, and then passes it along to the next command
+in the pipeline.

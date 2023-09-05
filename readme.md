@@ -402,3 +402,35 @@ Get-Process | Where { $_.handles -gt 500 } | Sort handles | Format-Table
 In owerShell, streaming is accomplished by splitting cmdlets into three clauses:
 BeginProcessing, ProcessRecord, and EndProcessing.
 
+#### 1.5.2 Parameters and parameter binding
+
+_Parameter binding_ is the process in which values are bound to the parameters on a command.
+
+These values can come from either the command line or the pipeline.
+
+Example of parameter bound from the command line:
+ ```Write-Output 123```
+
+ Example of parameter bound from the pipeline
+ ```123 | Write-Output```
+
+ ```
+ Trace-Command -Name ParameterBinding -Option All -Expression { 123 | Write-Output } -PSHost
+ ```
+
+<pre style='color: yellow'>
+DEBUG: 2023-09-05 16:09:16.0342 ParameterBinding Information: 0 : BIND NAMED cmd line args [Write-Output]
+DEBUG: 2023-09-05 16:09:16.0360 ParameterBinding Information: 0 : BIND POSITIONAL cmd line args [Write-Output]
+DEBUG: 2023-09-05 16:09:16.0365 ParameterBinding Information: 0 : MANDATORY PARAMETER CHECK on cmdlet [Write-Output]
+DEBUG: 2023-09-05 16:09:16.0369 ParameterBinding Information: 0 : CALLING BeginProcessing
+DEBUG: 2023-09-05 16:09:16.0372 ParameterBinding Information: 0 : BIND PIPELINE object to parameters: [Write-Output]
+DEBUG: 2023-09-05 16:09:16.0376 ParameterBinding Information: 0 :     PIPELINE object TYPE = [System.Int32]
+DEBUG: 2023-09-05 16:09:16.0380 ParameterBinding Information: 0 :     RESTORING pipeline parameter's original values
+DEBUG: 2023-09-05 16:09:16.0384 ParameterBinding Information: 0 :     Parameter [InputObject] PIPELINE INPUT ValueFromPipeline NO COERCION
+DEBUG: 2023-09-05 16:09:16.0391 ParameterBinding Information: 0 :     BIND arg [123] to parameter [InputObject]
+DEBUG: 2023-09-05 16:09:16.0394 ParameterBinding Information: 0 :         BIND arg [123] to param [InputObject] SUCCESSFUL
+DEBUG: 2023-09-05 16:09:16.0398 ParameterBinding Information: 0 : MANDATORY PARAMETER CHECK on cmdlet [Write-Output]
+DEBUG: 2023-09-05 16:09:16.0402 ParameterBinding Information: 0 : CALLING ProcessRecord
+DEBUG: 2023-09-05 16:09:16.0405 ParameterBinding Information: 0 : CALLING EndProcessing
+<span style='color: lightgreen; font-weight: bold;'>123</span>
+ </pre>

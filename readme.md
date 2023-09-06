@@ -891,3 +891,9 @@ __Hexadecimal Literals__
 0x10
 0xDeadBeef
 </pre>
+
+### 2.3 Collections: dictionaries and hashtables
+
+The _hashtable_ data type lets you map a set of keys to a set of values.
+
+A _dictionary_ is the general term for a data structure that maps keys to values.

@@ -574,3 +574,6 @@ If you do want the output as a series of strings, use the -Stream switch paramet
 __Out-GridView cmdlet__
 
 ```Get-Process *ss | Out-Gridview```
+
+## Chapter 2: Working with types
+

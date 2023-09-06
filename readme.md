@@ -650,3 +650,131 @@ Fallback methods are defined by the PowerShell runtime itself.
 
 Fallback members are used to solve interoperation problems with PowerShell workflow (v3), and as part of Desired State Configuration (v4).
 
+#### 2.1.4 Finding the available types
+
+The PowerShell runtime loads and uses many .NET (native) types.
+
+Within the host process, the .NET runtime creats an Application Domain, or AppDomain. 
+PowerShell is an application that runs inside an AppDomain.
+
+```[System.AppDomain]::CurrentDomain.GetAssemblies()```
+
+<pre>
+GAC    Version        Location
+---    -------        --------
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Private.CoreLib.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\pwsh.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Runtime.dll        
+False  v4.0.30319     C:\Program Files\PowerShell\7\Microsoft.PowerShell.ConsoleHost.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Management.Automation.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Threading.Thread.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Diagnostics.Process.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Runtime.InteropServices.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Collections.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Threading.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Xml.ReaderWriter.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Private.Xml.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Text.RegularExpressions.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Text.Encoding.Extensions.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Collections.Concurrent.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Runtime.Numerics.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Security.Cryptography.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Net.Primitives.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Memory.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Linq.Expressions.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\Microsoft.Win32.Registry.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Private.Uri.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\Microsoft.Management.Infrastructure.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Net.NetworkInformation.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.DirectoryServices.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.ComponentModel.Primitives.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Security.AccessControl.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Net.Mail.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Management.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Collections.Specialized.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\Newtonsoft.Json.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.ComponentModel.TypeConverter.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\Microsoft.PowerShell.CoreCLR.Eventing.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.ObjectModel.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\Microsoft.Win32.Primitives.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Runtime.Serialization.Formatters.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Diagnostics.TraceSource.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Linq.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Runtime.Serialization.Primitives.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Data.Common.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.ComponentModel.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Reflection.Emit.Lightweight.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Reflection.Emit.ILGeneration.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Reflection.Primitives.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Console.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Security.Principal.Windows.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Security.Claims.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\Microsoft.ApplicationInsights.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\netstandard.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Diagnostics.DiagnosticSource.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Diagnostics.Tracing.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.IO.MemoryMappedFiles.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Private.Xml.Linq.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.IO.Pipes.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Threading.Tasks.Parallel.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.IO.FileSystem.AccessControl.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Xml.XDocument.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Threading.Overlapped.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.IO.FileSystem.DriveInfo.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Text.Encoding.CodePages.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\getfilesiginforedistwrapper.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Security.Permissions.dll
+False
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Runtime.Loader.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Threading.ThreadPool.dll
+False  v4.0.30319     C:\program files\powershell\7\Modules\PSReadLine\Microsoft.PowerShell.PSReadLine2.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\mscorlib.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\Microsoft.PowerShell.Commands.Management.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\Microsoft.PowerShell.Commands.Utility.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\Microsoft.PowerShell.MarkdownRender.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Net.Http.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Net.Security.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Core.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.dll
+False  v4.0.30319     C:\program files\powershell\7\Modules\PSReadLine\net6plus\Microsoft.PowerShell.PSReadLine.Polyfiller.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Runtime.InteropServices.RuntimeInformation.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Net.Quic.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Net.Sockets.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Net.NameResolution.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Collections.NonGeneric.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Diagnostics.StackTrace.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.IO.Compression.dll
+False  v4.0.30319     C:\Program Files\PowerShell\7\Microsoft.CSharp.dll
+</pre>
+
+```[System.AppDomain]::CurrentDomain.GetAssemblies().GetTypes()```
+
+Too long.
+
+```
+[System.AppDomain]::CurrentDomain.GetAssemblies().GetTypes().Count
+19246
+```
+
+```
+function Find-Type {
+    param ( [regex]$Pattern )
+
+    [System.AppDomain]::CurrentDomain.GetAssemblies().GetTypes() | Select-String $Pattern
+}
+```
+
+```Find-Type "DateTime"```
+
+```[PowerShell].Assembly```
+
+<pre>
+GAC    Version        Location
+---    -------        --------
+False  v4.0.30319     C:\Program Files\PowerShell\7\System.Management.Automation.dll
+</pre>
+
+```[PowerShell].Assembly.Location```
+C:\Program Files\PowerShell\7\System.Management.Automation.dll
+
+PowerShell comes pretty much with "batteries included" with respect to the set of types you can use.

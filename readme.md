@@ -581,3 +581,11 @@ __Out-GridView cmdlet__
 
 PowerShell is _dynamically typed_, meaning that the user provides little type iformation up front.
 
+#### 2.1.1 Types and classes
+
+* A _type_ is a description of an object.
+* A _class_ is a PowerShell v5 keyword used to define a new type.
+* A _property_ is an individual piece of data used to describe an object.
+* A _method_ is a behavior of a class.
+* A _member_ is a general term that includes both properties and methods.
+* An _event_ is a special kind of method invoked by an occurrence and not invoked directly.

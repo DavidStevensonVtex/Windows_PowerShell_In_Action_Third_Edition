@@ -861,3 +861,33 @@ Here-strings come in single and double-quoted vesions like regular strings, with
 the significant difference being that variables and subexpressions aren't expanded
 in the single-quoted variant.
 
+#### 2.2.2 Numbers and numeric literals
+
+Example numeric literals
+<pre>
+1
+0x1FE4
+10000000000
+1.1
+1e3
+[float] 1.3   # defaults to double without the cast
+1d            # decimal suffix - d
+1.123d
+</pre>
+
+__Multiplier Suffixes__
+
+<pre>
+kb or KB
+mb or MB
+gb or GB
+tb or TB
+pb or PB
+</pre>
+
+__Hexadecimal Literals__
+
+<pre>
+0x10
+0xDeadBeef
+</pre>

@@ -897,3 +897,43 @@ __Hexadecimal Literals__
 The _hashtable_ data type lets you map a set of keys to a set of values.
 
 A _dictionary_ is the general term for a data structure that maps keys to values.
+
+#### 2.3.1 Creating and inspecting hashtables
+
+```
+$user = @{ FirstName = 'John' ; LastName = 'Smith' ; 
+    PhoneNumber = '555-1212' }
+$user
+```
+
+<pre>
+Name                           Value
+----                           -----
+LastName                       Smith
+FirstName                      John
+PhoneNumber                    555-1212
+</pre>
+
+```
+$user.firstname
+$user["firstname"]
+$user["firstname", "lastname"]
+$user[$user.keys]
+```
+
+<pre>
+$user.firstname
+John
+
+$user["firstname"]
+John
+
+$user["firstname", "lastname"]
+John
+Smith
+
+$user[$user.keys]
+Smith
+John
+555-1212
+</pre>

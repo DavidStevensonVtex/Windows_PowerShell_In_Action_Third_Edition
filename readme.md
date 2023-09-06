@@ -589,3 +589,24 @@ PowerShell is _dynamically typed_, meaning that the user provides little type if
 * A _method_ is a behavior of a class.
 * A _member_ is a general term that includes both properties and methods.
 * An _event_ is a special kind of method invoked by an occurrence and not invoked directly.
+
+#### 2.1.2 PowerShell: A type-promiscuous language
+
+By _type-promiscuous_, we mean that PowerShell will expend a tremendous amount of effort, much more
+than a typical dynamic language, tyring to turn what you have into what you need with as little work
+on your part as possible.
+
+PowerShell is careful about making sure its transformations are reasonable and no information is
+unexpectedly lost.
+
+The .NET _Get-Type()_ method, or _Get-Member_, can be used to discover the type, properties and/or methods of an expression or object.
+
+```
+(2 + 3.0 + '4').GetType().FullName
+```
+Result: System.Double
+
+_Discovering the type of an expression_
+
+```(2 + 3.0 + '4') | Get-Member```
+

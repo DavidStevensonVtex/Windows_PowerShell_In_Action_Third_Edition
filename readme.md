@@ -577,3 +577,7 @@ __Out-GridView cmdlet__
 
 ## Chapter 2: Working with types
 
+### 2.1 Type management in the wild, wild West
+
+PowerShell is _dynamically typed_, meaning that the user provides little type iformation up front.
+

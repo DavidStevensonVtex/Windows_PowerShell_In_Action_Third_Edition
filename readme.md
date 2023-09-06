@@ -610,3 +610,43 @@ _Discovering the type of an expression_
 
 ```(2 + 3.0 + '4') | Get-Member```
 
+#### 2.1.3 Type system and type adaptation
+
+There are three phases of member resolution: synthetic, native, and fallback.
+
+__Synthetic Members__
+
+PowerShell has an object wrapper, called PSObject, that allows the underlying object to be extended.
+
+But it's also possible to build an object without any "native" properties.
+
+__Native Members__
+
+There are multiple native types, .NET being the primary, but also WMI and COM, where the type defines its members.
+These members can be discovered by using the Get-Member cmdlet.
+
+```Get-Date | Get-Member```
+
+<pre>
+   TypeName: System.DateTime
+
+Name                 MemberType     Definition
+----                 ----------     ----------
+Add                  Method         datetime Add(timespan value)
+AddDays              Method         datetime AddDays(double value)
+AddHours             Method         datetime AddHours(double value)
+...
+DisplayHint          NoteProperty   DisplayHintType DisplayHint=DateTime
+Date                 Property       datetime Date {get;}
+Day                  Property       int Day {get;}
+DayOfWeek            Property       System.DayOfWeek DayOfWeek {get;}
+...
+DateTime             ScriptProperty System.Object DateTime {get=if ((& { Set-StrictMode -Version 1; $this.DisplayHint }) -ieq  "Date")…
+</pre>
+
+__Fallback Members__
+
+Fallback methods are defined by the PowerShell runtime itself.
+
+Fallback members are used to solve interoperation problems with PowerShell workflow (v3), and as part of Desired State Configuration (v4).
+

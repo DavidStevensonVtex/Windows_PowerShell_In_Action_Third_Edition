@@ -783,3 +783,81 @@ PowerShell comes pretty much with "batteries included" with respect to the set o
 
 Literals include strings, numbers, arrays, dictionaries and hashtables.
 
+#### 2.2.1 String literals
+
+There are four kinds of string literals in PowerShell: single-quoted strings, double quoted strings, 
+single-quoted here-strings, and double quoted here-strings.
+
+```
+$str1 = 'Single Quoted'
+$str2 = "Double Quoted"
+
+$strh1 = @'
+Single
+Quoted
+'@
+
+$strh2 = @"
+Double
+Quoted
+"@
+
+$strh2
+```
+Output:
+```
+Double
+Quoted
+```
+
+In PowerShell, a string is a sequence of 16-bit Unicode characters and 
+is directly implemented using the .NET System.String type.
+
+__Single and Double Quoted Strings__
+
+Literal strings can contain any character, including newlines, with the exception of an unquoted closing quote character.
+
+Double-quoted strings (sometimes called _expandable strings_) support variable substitution.
+
+```
+$foo = "FOO" 
+"This is a string in double quotes: $foo"
+'This is a string in single quotes: $foo'
+```
+Output:
+<pre>
+This is a string in double quotes: FOO
+'This is a string in single quotes: $foo'
+</pre>
+
+Expandable strings can also include arbitrary expressions by using the _subexpression_ notation.
+
+```"Expanding three statements in a string $(1; 2; 3)"```
+Output: Expanding three statements in a string 1 2 3
+
+__Here-String Literals__
+
+A here-string is used to embed large chunks of text inline in a script.
+
+```
+$a = @"
+One is "1"
+Two is '2'
+Three is $(2+1)
+The date is "$(Get-Date)"
+"@
+$a
+```
+<pre>
+One is "1"
+Two is '2'
+Three is 3
+The date is "09/06/2023 19:41:22"
+</pre>
+
+Here-strings start with @<quote>newline> and end with <newline><quote>@.
+
+Here-strings come in single and double-quoted vesions like regular strings, with
+the significant difference being that variables and subexpressions aren't expanded
+in the single-quoted variant.
+

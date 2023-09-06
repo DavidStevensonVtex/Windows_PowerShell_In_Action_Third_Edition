@@ -778,3 +778,8 @@ False  v4.0.30319     C:\Program Files\PowerShell\7\System.Management.Automation
 C:\Program Files\PowerShell\7\System.Management.Automation.dll
 
 PowerShell comes pretty much with "batteries included" with respect to the set of types you can use.
+
+### 2.2 Basic types and literals
+
+Literals include strings, numbers, arrays, dictionaries and hashtables.
+

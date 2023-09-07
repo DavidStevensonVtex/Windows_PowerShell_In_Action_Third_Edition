@@ -1340,3 +1340,21 @@ you can only use the static methods it provides.
 
 Automatic type conversion is the "secret sauce" that allows a strongly typed language 
 like PowerShell to behave like a typeless command-line shell.
+
+#### 2.6.1 How type conversion works
+
+Type conversions are used any time an attempt is made to use an objecxt of one type in
+a context that requires another type (such as adding a string to a number).
+
+[int] '0x25'      # 37
+
+[int] [char] 'a'  # 97
+
+"$([int[]] [char[]] 'Hello world')"
+# 72 101 108 108 111 32 119 111 114 108 100
+
+"0x{0:x}" -f [int] [char] 'a'   # 0x61
+
+Round-trip:
+[string] [char] [int] ("0x{0:x}" -f [int] [char] 'a')  # a
+

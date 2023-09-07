@@ -1058,3 +1058,24 @@ The most common operation resulting in an array in PowerShell is collecting the 
 $a = 1, 2, 3
 $a.GetType().FullName  # System.Object[]
 ```
+
+#### 2.4.2 Array indexing
+
+Getting and setting elements of the rray (array indexing) is done with brackets.
+
+The length of an array can be retrieved with the _Length_ property.
+
+Changes are made to an array by assigning new values to indexes in the array.
+
+```
+$a = 1, 2, 3
+$a[0] = 3.1415
+$a[2] = 'Hi there'
+$a
+```
+
+<pre>
+3.1415
+2
+Hi there
+</pre>

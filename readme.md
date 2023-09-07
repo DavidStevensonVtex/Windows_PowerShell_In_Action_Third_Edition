@@ -1045,3 +1045,8 @@ $bar = $foo.Clone()
 $foo.a = "Hi there"
 $bar.a    # 1
 ```
+
+### 2.4 Collections: arrays and sequences
+
+_There's no array literal notation in PowerShell._
+

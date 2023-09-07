@@ -1050,3 +1050,11 @@ $bar.a    # 1
 
 _There's no array literal notation in PowerShell._
 
+#### 2.4.1 Collecting pipeline output as an array
+
+The most common operation resulting in an array in PowerShell is collecting the output from a pipeline.
+
+```
+$a = 1, 2, 3
+$a.GetType().FullName  # System.Object[]
+```

@@ -1100,3 +1100,29 @@ $a += 22, 33
 $a                 # 1, 2, 3, 22, 33
 ```
 
+#### 2.4.4 Arrays as reference types
+
+```
+$a = 1, 2, 3
+"$a"   # 1 2 3
+```
+
+```
+[object[]] $a = 1, 2, 3
+$a.GetType().FullName
+$b = $a
+"`$a = $a, `$b = $b"     # $a = 1 2 3, $b = 1 2 3
+$a[0] = 'Changed'
+"`$a = $a, `$b = $b"     # $a = 1 2 3, $b = 1 2 3
+```
+
+As with hashtables, array assignment is done by reference.
+
+```
+$b += 4
+"`$a = $a, `$b = $b"     # $a = Changed 2 3, $b = Changed 2 3 4  
+```
+
+Because of the way array concatenation works, $b contains a copy of the contents of
+the array instead of a reference. If you change $a now, it won't affect $b.
+Conversely, changing $b will have no effec on $a.

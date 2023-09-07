@@ -1079,3 +1079,24 @@ $a
 2
 Hi there
 </pre>
+
+#### 2.4.3 Polymorphism in arrays
+
+Arrays are polymorphic by default. By polymorphic we mean you can store any time of object in an array.
+
+```
+$a = 1, 2, 3
+$a += 22, 33
+$a.GetType().FullName
+$a.length       # 5
+$a[4]           # 33
+```
+
+```
+[int[]] $a = 1, 2, 3
+$a.GetType().FullName   # System.Int32[]
+$a += "Hello"      # MetadataError: Cannot convert value "Hello" to type "System.Int32". Error: "The input string 'Hello' was not in a correct format."
+$a += 22, 33
+$a                 # 1, 2, 3, 22, 33
+```
+

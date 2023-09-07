@@ -937,3 +937,35 @@ Smith
 John
 555-1212
 </pre>
+
+#### 2.3.2 Ordered hashtables
+
+Alphabetically ordered keys
+
+```
+$usero = [ordered] @{ FirstName = 'John' ; LastName = 'Smith' ; PhoneNumber = '555-1212' } 
+$usero
+```
+
+<pre>
+Name                           Value   
+----                           -----   
+FirstName                      John    
+LastName                       Smith   
+PhoneNumber                    555-1212
+</pre>
+
+```
+$oh = [ordered] @{ }
+$oh[5] = 'five' 
+OperationStopped: Specified argument was out of the range of valid values. (Parameter 'index')
+```
+
+```
+$oh = [ordered] @{ }
+$oh[ [object] 5] = 'five'
+$oh[ [object] 5]
+five
+$oh[0]   # Uses element index to retrieve value
+five
+```

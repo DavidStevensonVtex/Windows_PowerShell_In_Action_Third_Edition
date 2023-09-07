@@ -1012,3 +1012,36 @@ Name                           Value
 one                            1
 two                            2
 </pre>
+
+#### 2.3.4 Hashtables as reference types
+
+Hashtables are reference types
+
+```
+$foo = @{
+    a = 1
+    b = 2
+    c = 3
+}
+$foo.a        # 1
+$bar = $foo
+$bar.a        # 1
+```
+
+```
+$foo.a = "Hi there"
+$foo.a   # Hi there
+$bar.a   # Hi there
+```
+
+The change made to $foo has been reflected in $bar.
+
+If you want to make a copy of the hashtable instead of copying the reference,
+you can use the Clone() method on the object.
+
+```
+$foo = @{ a = 1; b = 2; c = 3 }
+$bar = $foo.Clone()
+$foo.a = "Hi there"
+$bar.a    # 1
+```

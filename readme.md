@@ -1151,5 +1151,15 @@ Use this notation when you don't know whether the command you're calling is goin
 
 ( @( 1, 2, 3)).Length    # 3
 
+### 2.5 Type literals
+
+$i = [int] '123' ;
+$i = [System.Int32] '123'
+
+$i = [int[]] '123' 
+$i.GetType().FullName  # $i.GetType().FullName
+$i                     123
+
+
 
 

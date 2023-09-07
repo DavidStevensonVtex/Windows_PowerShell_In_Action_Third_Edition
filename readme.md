@@ -1336,3 +1336,7 @@ $s = 'one', 'two', 'three'
 The class, [System.Math], is a pure static class, meaning you can't create an instance of it--
 you can only use the static methods it provides.
 
+### 2.6 Type conversions
+
+Automatic type conversion is the "secret sauce" that allows a strongly typed language 
+like PowerShell to behave like a typeless command-line shell.

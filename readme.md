@@ -969,3 +969,46 @@ five
 $oh[0]   # Uses element index to retrieve value
 five
 ```
+
+#### 2.3.3 Modifying and manipulating hashtables
+
+```
+$user = @{ }
+$user.date = Get-Date
+$user['city'] = 'Seattle'
+$user
+```
+
+<pre>
+Name                           Value
+----                           -----
+city                           Seattle
+date                           9/7/2023 2:00:16 PM
+</pre>
+
+To remove an element from the hashtable:
+
+```
+$user.remove("city")
+$user
+```
+
+<pre>
+Name                           Value
+----                           -----
+date                           9/7/2023 2:00:16 PM
+</pre>
+
+```
+$newHashTable = @{}     # Create an empty hashtable
+$newHashTable
+$newHashTable.one = 1
+$newHashTable.two = 2
+$newHashTable
+```
+<pre>
+Name                           Value
+----                           -----
+one                            1
+two                            2
+</pre>

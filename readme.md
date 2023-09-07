@@ -1367,3 +1367,10 @@ They're always processed first and can't be overriden.
 
 __.NET-Based Custom Converters__
 
+#### 2.6.3 Special type conversions in parameter binding
+
+__ScriptBlock Parameters__
+
+PowerShell has something called a _scriptblock_ which is a fragment of code that you
+can pass around as an object itself.
+

@@ -1302,3 +1302,37 @@ IsPublic IsSerial Name         BaseType
 -------- -------- ----         --------     
 True     True     Dictionary`2 System.Object
 </pre>
+
+#### 2.5.3 Accessing static members with type literals
+
+[string] | Get-Member -Static
+
+<pre>
+   TypeName: System.String
+
+Name               MemberType Definition
+----               ---------- ----------
+Compare            Method     static int Compare(string strA, string strB), static int Compare(string strA, string strB, bool ignoreCase), static int Compare(string strA, stri… 
+CompareOrdinal     Method     static int CompareOrdinal(string strA, string strB), static int CompareOrdinal(string strA, int indexA, string strB, int indexB, int length)       
+Concat             Method     static string Concat(System.Object arg0), static string Concat(System.Object arg0, System.Object arg1), static string Concat(System.Object arg0, … 
+Copy               Method     static string Copy(string str)
+Create             Method     static string Create[TState](int length, TState state, System.Buffers.SpanAction[char,TState] action), static string Create(System.IFormatProvide… 
+Equals             Method     static bool Equals(string a, string b), static bool Equals(string a, string b, System.StringComparison comparisonType), static bool Equals(System… 
+Format             Method     static string Format(string format, System.Object arg0), static string Format(string format, System.Object arg0, System.Object arg1), static stri… 
+GetHashCode        Method     static int GetHashCode(System.ReadOnlySpan[char] value), static int GetHashCode(System.ReadOnlySpan[char] value, System.StringComparison comparis… 
+Intern             Method     static string Intern(string str)
+IsInterned         Method     static string IsInterned(string str)
+IsNullOrEmpty      Method     static bool IsNullOrEmpty(string value)
+IsNullOrWhiteSpace Method     static bool IsNullOrWhiteSpace(string value)
+Join               Method     static string Join(char separator, Params string[] value), static string Join(string separator, Params string[] value), static string Join(char s… 
+new                Method     string new(char[] value), string new(char[] value, int startIndex, int length), string new(System.Char*, System.Private.CoreLib, Version=7.0.0.0,… 
+ReferenceEquals    Method     static bool ReferenceEquals(System.Object objA, System.Object objB)
+Empty              Property   static string Empty {get;}
+</pre>
+
+$s = 'one', 'two', 'three'
+[string]::Join(' + ', $s)   # one + two + three
+
+The class, [System.Math], is a pure static class, meaning you can't create an instance of it--
+you can only use the static methods it provides.
+

@@ -1276,3 +1276,29 @@ X500DistinguishedName        System.Security.Cryptography.X509Certificates.X500D
 X509Certificate              System.Security.Cryptography.X509Certificates.X509Certificate
 xml                          System.Xml.XmlDocument
 </pre>
+
+#### 2.5.2 Generic type literals
+
+There's a special kind of type in .NET called a _generic type_, which lets you say something
+like "a list of strings" instead of "a list".
+
+[System.Collections.Generic.List[int]] | Format-Table -AutoSize
+
+<pre>
+IsPublic IsSerial Name   BaseType
+-------- -------- ----   --------
+True     True     List`1 System.Object
+</pre>
+
+$l = New-Object System.Collections.Generic.List[int] 
+$l.add(1)
+$l.add(2)
+$l  # 1 2
+
+[system.collections.generic.dictionary[string,int]] | Format-Table -AutoSize
+
+<pre>
+IsPublic IsSerial Name         BaseType     
+-------- -------- ----         --------     
+True     True     Dictionary`2 System.Object
+</pre>

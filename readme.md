@@ -1126,3 +1126,30 @@ $b += 4
 Because of the way array concatenation works, $b contains a copy of the contents of
 the array instead of a reference. If you change $a now, it won't affect $b.
 Conversely, changing $b will have no effec on $a.
+
+#### 2.4.5 Singleton arrays and empty arrays
+
+(, 1).Length   # 1
+
+This code creates an array containing a single element, 1.
+
+Empty arrays are created through a special form of subexpression notation that uses the 
+@ symbol isntead of the $ sign to start the expression.
+
+@().Length      # 0
+
+The other solution to creating an array with one element is:
+
+@(1)          # 1
+@(1).Length   # 1
+
+Use this notation when you don't know whether the command you're calling is going to return an array.
+
+(1, 2, 3).Length   # 3
+
+( , (1, 2, 3) ).Length   # 1
+
+( @( 1, 2, 3)).Length    # 3
+
+
+

@@ -1351,10 +1351,19 @@ a context that requires another type (such as adding a string to a number).
 [int] [char] 'a'  # 97
 
 "$([int[]] [char[]] 'Hello world')"
-# 72 101 108 108 111 32 119 111 114 108 100
+<pre>72 101 108 108 111 32 119 111 114 108 100</pre>
 
 "0x{0:x}" -f [int] [char] 'a'   # 0x61
 
 Round-trip:
 [string] [char] [int] ("0x{0:x}" -f [int] [char] 'a')  # a
+
+#### 2.6.2 PowerShell's type-conversion algorithm
+
+__PowerShell Language Standard Conversions__
+
+The standard built-in conversions performed by the engine itself.
+They're always processed first and can't be overriden.
+
+__.NET-Based Custom Converters__
 

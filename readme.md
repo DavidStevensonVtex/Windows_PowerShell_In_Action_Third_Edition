@@ -1520,3 +1520,16 @@ Multiple assignments are allowed.
 $a, $b, $c = 1, 2, 3, 4
 "`$a = $a,  `$b = $b,   `$c = $c"       # $a = 1,  $b = 2,   $c = 3 4
 ```
+
+#### 3.2.1 Multiple assignments
+
+```
+$temp = $a
+$a = $b
+$b = $temp
+```
+
+Swap values using multiple assignments
+```
+$a, $b = $b, $a
+```

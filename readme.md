@@ -1533,3 +1533,21 @@ Swap values using multiple assignments
 ```
 $a, $b = $b, $a
 ```
+
+#### 3.2.2 Multiple assignements with type qualifiers
+
+```
+$data = Get-Content -Path data.txt | foreach {
+    $e = @{}
+    $e.level, [int] $e.lower, [int] $e.upper = -split $_
+    $e
+}
+$data[0]
+```
+<pre>
+Name                           Value
+----                           -----
+level                          quiet
+lower                          0
+upper                          25
+</pre>

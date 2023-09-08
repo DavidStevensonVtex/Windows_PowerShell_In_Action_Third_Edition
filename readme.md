@@ -1728,3 +1728,9 @@ Get-ChildItem -Path [fm]*.txt   # Text files that start with the letter 'f' or '
 * \[\<char\>\<char\>...] matches any one character from a set of characters
 
 Although wildcard patterns are simple, there matching capabilities are limited.
+
+#### 3.4.2 Regular expressions
+
+* \.\* is matches zero or more characters
+* \. matches any single character
+* The PowerShell operators -match, -replace, and -split work with regular expressions.

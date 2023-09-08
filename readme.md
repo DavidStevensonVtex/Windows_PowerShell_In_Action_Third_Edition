@@ -1511,3 +1511,12 @@ Subtraction, division, and the modulus (%) operators are _only defined for numbe
 
 '123' / '4'   # 30.75
 
+### 3.2 Assignment operators
+
+__Assignment Operators__ = += -= *= /= %=
+
+Multiple assignments are allowed.
+```
+$a, $b, $c = 1, 2, 3, 4
+"`$a = $a,  `$b = $b,   `$c = $c"       # $a = 1,  $b = 2,   $c = 3 4
+```

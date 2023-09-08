@@ -1597,3 +1597,24 @@ When comparisons are done in a numeric context, the widening rules are applied.
 [int] "123" -lt "123.4"     # True
 
 [double] "123" -lt "123.4"  # True
+
+#### 3.3.2 Comparisons and case sensitivity
+
+Case sensitivity only applies to strings.
+
+'abc' -eq 'ABC'   # True
+
+'abc' -ieq 'ABC'  # True
+
+'abc' -ceq 'ABC'  # False
+
+The default case -eq is case-insensitive.
+
+How things that aren't strings or numbers are compared.
+
+1. If the object implements the .NET IComparable interface, then that will be used.
+1. If not, and the object on the _left_ side has an Equals() method that can take an object of the right operand, this is used.
+1. If there's no direct mechanism for comparing the two, an attempt will be made to convert the right operand into an 
+instance of the type of the left operand, and then PowerShell will try to compare the resulting objects.
+
+Get-Process | where { $_.starttime -ge [DateTime]::today }

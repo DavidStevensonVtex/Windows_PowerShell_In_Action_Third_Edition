@@ -1505,3 +1505,9 @@ $a.Length       # 6
 "$a"            # 1 2 3 1 2 3
 ```
 
+#### 3.1.3 Subtraction, division, and the modulus operator
+
+Subtraction, division, and the modulus (%) operators are _only defined for numbers by PowerShell_.
+
+'123' / '4'   # 30.75
+

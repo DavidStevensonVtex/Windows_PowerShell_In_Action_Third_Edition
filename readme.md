@@ -1378,3 +1378,42 @@ can pass around as an object itself.
 
 Note: Operators are normally classed as unary if they take a single operand
 and binary if they take two. The operators in this chapter are all binary.
+
+__Arithmetic Operators__ + - * / %
+
+__Assignment Operators__ = += -= *= /= %=
+
+__Comparison Operators__ 
+
+-eq -ne -gt -ge -lt -le
+
+-ieq -ine -igt -ige -ilt -ile
+
+-ceq -cne -cgt -cge -clt -cle
+
+__Containment Operators__ 
+
+-contains -notcontains -in -notin
+
+-icontains -inotcontains -iin -inotin
+
+-ccontains -cnotcontains -cin -cnotin
+
+__Pattern-matching and text-manipulation operators__
+
+-like -notlike -match -notmatch -replace -split
+
+-ilike -inotlike -imatch -inotmatch -ireplace -isplit
+
+-clike -cnotlike -cmatch -cnotmatch -creplace -csplit
+
+__Logical and bitwise operators__
+
+-and -or -not -xor -shl
+
+-band -nor -bnot -bxor -shr
+
+One of the characteristics that makes PowerShell operators so powerful is they're _polymorphic_.
+This means that they work on more than one type of object.
+
+[Get-Help operator](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_operators?view=powershell-7.3)

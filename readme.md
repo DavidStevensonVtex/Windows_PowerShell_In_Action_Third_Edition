@@ -1551,3 +1551,19 @@ level                          quiet
 lower                          0
 upper                          25
 </pre>
+
+#### 3.2.3 Assign operations as value expressions
+
+The last thing you need to know about assignment operators is they're expressions.
+
+$a = $b = $c = 3
+
+What exactly happened?
+
+$a = ($b = ($c = 3))
+
+```
+$a = ( $b = ( $c = 3 ) + 1) + 1
+"`$a = $a, `$b = $b, `$c = $c"      # $a = 5, $b = 4, $c = 3
+```
+

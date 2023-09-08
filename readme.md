@@ -1567,3 +1567,18 @@ $a = ( $b = ( $c = 3 ) + 1) + 1
 "`$a = $a, `$b = $b, `$c = $c"      # $a = 5, $b = 4, $c = 3
 ```
 
+### 3.3 Comparison operators
+
+```
+-eq -ne -gt -ge -lt -le
+-ieq -ine -igt -ige -ilt -ile
+-ceq -cne -cgt -cge -clt -cle
+```
+
+PowerShell has a izable number of comparison operators, in large part because 
+there are case-sensitive and case-insensitive versions of all of the operators.
+
+The "c" variant is case-sensitive, and the "i" variant is case-insensitive.
+
+The unqualified operators are case-insensitive.
+

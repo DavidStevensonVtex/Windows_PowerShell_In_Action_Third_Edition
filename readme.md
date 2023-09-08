@@ -1582,3 +1582,18 @@ The "c" variant is case-sensitive, and the "i" variant is case-insensitive.
 
 The unqualified operators are case-insensitive.
 
+#### 3.3.1 Scalar comparisons
+
+__Basic Comparison Rules__
+
+The behavior of the comparison operators are significantly affected by the type of the _left_ operand.
+
+__Type Conversions and Comparisons__
+
+When comparisons are done in a numeric context, the widening rules are applied.
+
+[int] "123" -lt "123.4"     # True
+
+[int] "123" -lt "123.4"     # True
+
+[double] "123" -lt "123.4"  # True

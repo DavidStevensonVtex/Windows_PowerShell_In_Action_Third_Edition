@@ -1488,3 +1488,20 @@ LastName                       Stevenson
 FirstName                      David
 State                          NY
 </pre>
+
+#### 3.1.2 Multiplication operator
+
+PowerShell defines multiplication for numbers, strings and arrays.
+
+'abc' * 3   # abcabcabc
+
+'abc' * 0   # (empty string)
+
+```
+$a = 1, 2, 3
+$a.Length       # 3
+$a = $a * 2
+$a.Length       # 6
+"$a"            # 1 2 3 1 2 3
+```
+

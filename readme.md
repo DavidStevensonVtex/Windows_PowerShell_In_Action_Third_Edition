@@ -1705,3 +1705,10 @@ CommandType     Name                                               Version    So
 -----------     ----                                               -------    ------
 Alias           where -> Where-Object
 </pre>
+
+### 3.4 Pattern matching and text manipulation
+
+Pattern matching operators work on strings, allowing searching, extraction, editing and creating new strings.
+
+Text manipulation operators allow breaing strings apart and adding individual pieces back together.
+

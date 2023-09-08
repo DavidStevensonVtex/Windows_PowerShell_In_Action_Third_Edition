@@ -1712,3 +1712,19 @@ Pattern matching operators work on strings, allowing searching, extraction, edit
 
 Text manipulation operators allow breaing strings apart and adding individual pieces back together.
 
+#### 3.4.1 Wildcard patterns and the -like operator
+
+_Wildcard pattern_
+
+Get-ChildItem -Path *.txt
+
+Wildcard patterns allow you to specify character ranges.
+
+Get-ChildItem -Path [fm]*.txt   # Text files that start with the letter 'f' or 'm'.
+
+* \* matches zero or more characters anywhere in the string
+* \? matches any single character
+* \[\<char\>-\<char\>] matches a sequential range of characters
+* \[\<char\>\<char\>...] matches any one character from a set of characters
+
+Although wildcard patterns are simple, there matching capabilities are limited.

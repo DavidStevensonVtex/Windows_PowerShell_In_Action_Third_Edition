@@ -1618,3 +1618,90 @@ How things that aren't strings or numbers are compared.
 instance of the type of the left operand, and then PowerShell will try to compare the resulting objects.
 
 Get-Process | where { $_.starttime -ge [DateTime]::today }
+
+#### 3.3.3 Using comiparison operators with collections
+
+__Basic Comparison Operations Involving Collections__
+
+If the _left_ operand is an array or collection, the comparison operation will return 
+the elements of that collection that match the right operand. This works with strings as well.
+
+```
+1, '2', 3, 2, '1' -eq '2'
+2
+2
+```
+
+Examples with leading zeros:
+
+```
+1, '02', 3, 02, '1' -eq '2'
+2
+```
+
+```
+1, '02', 3, 02, '1' -eq 2
+2
+```
+
+__Containment Operators__
+
+All of the comparison operators we've discussed so far return the matching elements
+from the collection.
+
+Although this is extremely useful, there are times when you want to find out whether
+or not an element is  there.
+
+```
+-contains -notcontains -in -notin
+-icontains -inotcontains -iin -inotin
+-ccontains -cnotcontains -cin -cnotin
+```
+
+These operators return $true if the set contains the elements you're looking for instead
+of returning the matching elements.
+
+```
+1, 2, 3 -contains 2     # True
+1, 2, 3 -notcontains 2  # False
+2 -in 1, 2, 3           # True
+2 -notin 1, 2, 3        # False
+
+1, '02', 3, 02, '1' -contains '02'    # True
+1, '02', 3, 02, '1' -notcontains '02' # False
+```
+
+```$false, $true -eq $false```
+-eq searches the list for $false, finds it, and then returns the matching value
+
+```$false, $true -contains $false # True```
+
+@($false, $true -eq $false).count  # 1
+
+The @( ... ) sequence forces the result to be an array and then counts the result.
+
+It may seem odd to have both a -contains operator and an -in operator. 
+They both appear to do the same thing but from the opposite directions.
+
+```
+1, 2, 3 -contains 2  # True
+2 -in 1, 2, 3        # True
+```
+
+```
+$names = 'pwsh', 'powershell_ise'
+Get-Process | where Name -in $names
+```
+<pre>
+ NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName
+ ------    -----      -----     ------      --  -- -----------
+     77    32.46      79.68       4.27   11356   3 pwsh
+     88    43.77     106.41       7.52   24372   3 pwsh
+</pre>
+
+Get-Alias where
+<pre>
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Alias           where -> Where-Object
+</pre>

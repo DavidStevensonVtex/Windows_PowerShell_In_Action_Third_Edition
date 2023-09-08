@@ -1421,3 +1421,70 @@ This means that they work on more than one type of object.
 ### 3.1 Arithmetic operators
 
 __Arithmetic Operators__ + - * / %
+
+#### 3.1.1 Addition operator
+
+numbers: addition
+
+strings: concatenation
+
+arrays: joins (array concatenation)
+
+hashtables: creates new hashtable with combined elements.
+
+```
+$a = [int[]] (1, 2, 3, 4)
+$a[0] = 10
+$a[0] = '0xabc' 
+"$a"        # 2748 2 3 4
+$a[0] = 'hello'
+InvalidArgument: Cannot convert value "hello" to type "System.Int32". Error: "The input string 'hello' was not in a correct format."
+```
+
+```
+$a = [int[]] (1, 2, 3, 4)
+"$a"                        # 1 2 3 4
+$a = $a + 'hello'
+"$a"                        # 1 2 3 4 hello
+$a[0] = 'hello'
+"$a"                        # hello 2 3 4 hello
+```
+
+```
+$a.GetType().FullName
+System.Object[]
+```
+
+```
+$a = @{ FirstName = 'David'; LastName = 'Stevenson' } ;
+$b = @{ Street = '123 Main Street'; State = 'NY' }
+$c = $a + $b
+$a
+$b
+$c
+```
+
+<pre>
+$a
+
+Name                           Value
+----                           -----
+FirstName                      David
+LastName                       Stevenson
+
+$b
+
+Name                           Value
+----                           -----
+State                          NY
+Street                         123 Main Street
+
+$c
+
+Name                           Value
+----                           -----
+Street                         123 Main Street
+LastName                       Stevenson
+FirstName                      David
+State                          NY
+</pre>

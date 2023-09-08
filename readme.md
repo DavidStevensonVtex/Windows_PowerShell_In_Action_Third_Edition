@@ -1417,3 +1417,7 @@ One of the characteristics that makes PowerShell operators so powerful is they'r
 This means that they work on more than one type of object.
 
 [Get-Help operator](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_operators?view=powershell-7.3)
+
+### 3.1 Arithmetic operators
+
+__Arithmetic Operators__ + - * / %

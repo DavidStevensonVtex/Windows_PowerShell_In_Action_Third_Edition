@@ -1374,3 +1374,7 @@ __ScriptBlock Parameters__
 PowerShell has something called a _scriptblock_ which is a fragment of code that you
 can pass around as an object itself.
 
+## Chapter 3: Operators and expressions
+
+Note: Operators are normally classed as unary if they take a single operand
+and binary if they take two. The operators in this chapter are all binary.

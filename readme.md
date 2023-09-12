@@ -1992,3 +1992,20 @@ Yellow,Green
 Blue,Violet
 Gray,White
 </pre>
+
+### 3.5 Logical and bitwise operators
+
+PowerShell has logical operators -and, -or, -xor and -not for combining simpler comparisons
+into more complex expressions.
+
+<pre>
+-and  -or  -not  -xor  -shl
+-band -nor -bnot -bxor -shr
+</pre>
+
+The operators beginning with the letter b are binary operators.
+
+These PowerShell logical operators are short-circuit operators --
+they only do as much work as they need to.
+
+64 bit integers are supported in PowerShell v2 and later.

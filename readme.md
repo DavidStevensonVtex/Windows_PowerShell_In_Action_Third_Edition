@@ -2015,3 +2015,43 @@ they only do as much work as they need to.
 The Where() and ForEach() methods work in a similar manner to the Where-Object 
 and ForEach-Object cmdlets.
 
+#### 3.6.1 Where() method
+
+The Where() method provides a way to filter collections using a condensed syntax.
+In all cases, using the Where() method is faster (up to ten times faster) than using
+Where-Object, but consumes more memory.
+
+The following is a standard use of the Where-Object cmdlet:
+
+```Get-Process | where Handles -gt 1000```
+
+The Where() method can be used to achieve the same result.
+
+(Get-Process).where{ $_.Handles -gt 1000 }
+
+(Get-Process).where{ $psitem.Handles -gt 1000 }
+
+Qualifiers can be applied to display the first or last member of the collection:
+
+(Get-Process).where( { $_.Handles -gt 1000 }, 'First')
+
+(Get-Process).where( { $_.Handles -gt 1000 }, 'Last')
+
+This can be extended tothe first or last _n_ members:
+
+(Get-Process).where( { $_.Handles -gt 1000 }, 'First', 3)
+
+(Get-Process).where( { $_.Handles -gt 1000 }, 'Last', 3)
+
+There's an option to split the results (first member contains the processes that match the filter,
+and the second member those that don't).
+
+```
+$proc = (Get-Process).where( {$_.Handles -gt 1000 }, 'Split')
+$proc[0]
+$proc[1]
+```
+
+(Get-Process | sort Handles).where( { $_.Handles -gt 1000 }, 'Until' )
+
+(Get-Process | sort Handles).where( { $_.Handles -gt 1000 }, 'SkipUntil' )

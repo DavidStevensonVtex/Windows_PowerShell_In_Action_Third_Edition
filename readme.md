@@ -1824,3 +1824,101 @@ $a = "really"
 
 'The quick brown fox' -replace 'quick'
 <pre>The  brown fox</pre>
+
+#### 3.4.5 The -join operator
+
+PowerShell has two operators for working with collections and strings; -split and -join.
+
+```
+$in = 1, 2, 3
+$out = -join $in
+$out
+$out = $in -join ', '
+$out
+```
+<pre>
+123
+1, 2, 3
+</pre>
+
+```
+$ca = [char[]] 'abcd' 
+"$ca"
+[array]::Reverse($ca)
+"$ca"
+```
+<pre>
+a b c d
+d c b a
+</pre>
+
+```
+$ra = -join $ca
+$ra   # dcba
+```
+
+-join 1,2,3 
+<pre>
+1
+2
+3
+</pre>
+
+Surprise! Instead of joining the array members into a single string, it returned the same array.
+This is because unary operators have higher precedence than binary operators and, in PowerShell,
+the comma is a binary operator. -join 1,2,3 is equivalent to (-join 1), 2, 3
+
+To use the unary -join operator:
+
+-join (1,2,3) # 123
+
+```
+$numbers = 1, 2, 3
+$exp = $numbers -join '+'
+$exp   # 1+2+3
+```
+
+```
+1..10 -join '*'   # 1*2*3*4*5*6*7*8*9*10
+$fact = Invoke-Expression (1..10 -join '*')
+$fact   # 3628800
+```
+
+```
+@'
+line1
+line2
+line3
+'@ > out.txt
+$text = Get-Content -Path out.txt
+$text
+```
+The Get-Content returns the contents of a file as an array of strings - in fact it's an [object] array.
+<pre>
+line1
+line2
+line3
+</pre>
+
+```
+$single = $text -join "`r`n"
+$single
+```
+<pre>
+line1
+line2
+line3
+</pre>
+
+```
+$single2 = Get-Content -Path out.txt -Raw
+$single2
+$single2.GetType().FullName
+```
+<pre>
+line1
+line2
+line3
+
+System.String
+</pre>

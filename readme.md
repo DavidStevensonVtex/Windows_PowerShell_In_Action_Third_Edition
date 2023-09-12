@@ -2009,3 +2009,9 @@ These PowerShell logical operators are short-circuit operators --
 they only do as much work as they need to.
 
 64 bit integers are supported in PowerShell v2 and later.
+
+### 3.6 Where() and ForEach() methods
+
+The Where() and ForEach() methods work in a similar manner to the Where-Object 
+and ForEach-Object cmdlets.
+

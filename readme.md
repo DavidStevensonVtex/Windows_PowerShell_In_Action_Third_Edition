@@ -1805,3 +1805,22 @@ Name                           Value
 computer                       DSTEVENSONWIN10
 0                              Full Computer name                   DSTEVENSONWIN10
 </pre>
+
+#### 3.4.4. The -replace operator
+
+```'1,2,3,4' -replace '\s*,\s*','+'```
+<pre>1+2+3+4</pre>
+
+$(Get-Content old.txt) -replace 'is (red|blue)','was $1' > new.txt
+
+'My bike is yellow' -replace 'is (red|blue)','was $1'
+<pre>My bike is yellow</pre>
+
+```
+$a = "really"
+'The car is red' -replace 'is (red|blue)',"was $a `$1"
+```
+<pre>The car was really red</pre>
+
+'The quick brown fox' -replace 'quick'
+<pre>The  brown fox</pre>

@@ -1734,3 +1734,74 @@ Although wildcard patterns are simple, there matching capabilities are limited.
 * \.\* is matches zero or more characters
 * \. matches any single character
 * The PowerShell operators -match, -replace, and -split work with regular expressions.
+
+#### 3.4.3 The -match operator
+
+```
+-match -cmatch -imatch
+-notmatch -cnotmatch -inotmatch
+-replace -creplace -ireplace
+```
+
+<pre>
+'Hello' -match '[jkl]'       # True
+'Hello' -notmatch '[jkl]'    # False
+'Hello' -replace 'ello','i'  # Hi
+'abcde' -replace 'bcd'       # ae
+</pre>
+
+The -match operator is similar to the -like operator in that it matches a pattern and returns a result.
+Along wit that result, though, it sets the $matches variable.
+
+```
+'abcdef' -match '(a)(((b)(c))de)f'
+$matches
+```
+
+<pre>
+Name                           Value
+----                           -----
+5                              c
+4                              b
+3                              bc
+2                              bcde
+1                              a
+0                              abcdef
+</pre>
+
+__Matching Using Named Captures__
+
+```
+'abcdef' -match '(?<o1>a)(?<o2>((?<e3>b)(?<e4>c))de)f'  # True
+$matches
+```
+
+<pre>
+Name                           Value
+----                           -----
+o2                             bcde
+o1                             a
+e3                             b
+e4                             c
+1                              bc
+0                              abcdef
+</pre>
+
+__Parsing Command Output Using Regular Expressions__
+
+```(net config workstation)[1]```
+<pre>Full Computer name                   DSTEVENSONWIN10</pre>
+
+```
+$p = '^Full Computer.*  (?<computer>[^.]+)(\.(?<domain>[%.]+))?'
+(net config workstation)[1] -match $p
+$matches
+$matches.computer      # DSTEVENSONWIN10
+```
+
+<pre>
+Name                           Value
+----                           -----
+computer                       DSTEVENSONWIN10
+0                              Full Computer name                   DSTEVENSONWIN10
+</pre>

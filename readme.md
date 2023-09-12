@@ -1922,3 +1922,73 @@ line3
 
 System.String
 </pre>
+
+#### 3.4.6 The -split operator
+
+The -split operator performs the opposite operation to -join: it splits strings into a collection 
+of smaller strings.
+
+'a:b:c:d:e' -split ':'
+<pre>a
+b
+c
+d
+e</pre>
+
+The -split operator allows you to limit the number of elements to return. Do so by specifying
+an intenger after the match pattern.
+
+'a:b:c:d:e' -split ':',3
+<pre>
+a
+b
+c:d:e
+</pre>
+
+'a*b*c' -split '*'
+<pre>OperationStopped: Invalid pattern '*' at offset 1. Quantifier '*' following nothing.W</pre>
+
+'a*b*c' -split '\*'
+<pre>a
+b
+c</pre>
+
+'a*b*c' -split '*',0,'SimpleMatch'
+<pre>a
+b
+c</pre>
+
+In some cases, it's much simpler to use 'SimpleMatch' rather than escaping all the special regular expression characters.
+
+__-split Operator Options__
+
+Multiple options can be specified with commas between them, like RegexMAtch,IgnoreCase,MultiLine.
+
+<pre>
+IgnoreCase
+CultureInvariant
+IgnorePatternWhitespace
+Multiline
+SingleLine
+ExplicitCapture
+</pre>
+
+__Using ScriptBlocks with the -split operator__
+
+PowerShell allows you to pass a scriptblock to the operator. The scriptblock will be used as a
+_predicate function_ that determines whether there's a match.
+
+This string contains a list of colors that you want to split into pairs, two colors per pair:
+
+```
+$colors = "Black,Brown,Red,Orange,Yellow,Green,Blue,Violet,Gray,White"
+$count=@(0)
+$colors -split { $_ -eq ',' -and ++$count[0] % 2 -eq 0 }
+```
+<pre>
+Black,Brown
+Red,Orange
+Yellow,Green
+Blue,Violet
+Gray,White
+</pre>

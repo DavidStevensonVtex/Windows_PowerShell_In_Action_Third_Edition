@@ -2055,3 +2055,40 @@ $proc[1]
 (Get-Process | sort Handles).where( { $_.Handles -gt 1000 }, 'Until' )
 
 (Get-Process | sort Handles).where( { $_.Handles -gt 1000 }, 'SkipUntil' )
+
+
+#### 3.6.2 ForEach() method
+
+```
+$data = 1,2,3,4,5
+
+($data).ForEach( { $_ * 2 } )
+$data.ForEach( { $_ * 2 })
+```
+
+When the data is already an array, you don't need to wrap it in ().
+<pre>
+2
+4
+6
+8
+10
+</pre>
+
+```
+$data | Get-Member                      # TypeName: System.Int32
+$data.ForEach( [double]) | Get-Member   # TypeName: System.Double
+```
+Values for a particular property can be displayed as follows:
+
+```
+(Get-Process).foreach('Name')
+```
+
+If the objects within the collection have methods, they can be invoked
+
+```
+(Get-Process -Name notepad).foreach('Name')
+(Get-Process -Name notepad).foreach('Kill')
+```
+
